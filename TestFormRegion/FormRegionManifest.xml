@@ -1,0 +1,10 @@
+<FormRegion xmlns="http://schemas.microsoft.com/office/outlook/12/formregion.xsd">
+  <name>Example</name>
+  <formRegionType>Replace-all</formRegionType>
+  <formRegionName>My Test Replace All form thingy</formRegionName>
+  <hidden>true</hidden>
+  <showInspectorCompose>false</showInspectorCompose>
+  <showInspectorRead>true</showInspectorRead>
+  <showReadingPane>true</showReadingPane>
+  <addin>ext.test</addin>
+</FormRegion>

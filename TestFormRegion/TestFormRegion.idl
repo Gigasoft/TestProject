@@ -1,0 +1,53 @@
+// TestFormRegion.idl : IDL source for TestFormRegion
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (TestFormRegion.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(49524DC5-0E4B-4FA9-BFC9-D81CF2CC067A),
+	dual,
+	nonextensible,
+	helpstring("IRibbonCallback Interface"),
+	pointer_default(unique)
+]
+interface IRibbonCallback : IDispatch 
+{
+		[id(41), helpstring("method OnLoad")] HRESULT OnLoad([in] IDispatch* spDispRibbonUI);
+		[id(42), helpstring("method ButtonClicked")] HRESULT ButtonClicked([in] IDispatch* RibbonControl);
+		[id(43), helpstring("method GetImage")] HRESULT GetImage([in] IDispatch* RibbonControl, [out, retval] IDispatch ** ppdispImage);
+		[id(44), helpstring("method GetEnabled")] HRESULT GetEnabled([in] IDispatch* RibbonControl, [out, retval] VARIANT_BOOL *pvarfEnabled);
+		[id(45), helpstring("method GetText")] HRESULT GetText([in] IDispatch* RibbonControl, [out, retval] BSTR* pVal);
+		[id(46), helpstring("method CheckboxClicked")] HRESULT CheckboxClicked([in] IDispatch* RibbonControl, [in] VARIANT_BOOL state);
+		[id(47), helpstring("method GetCheckboxState")] HRESULT GetCheckboxState([in] IDispatch* RibbonControl, [out, retval] VARIANT_BOOL * pvarfState);
+	
+};
+[
+	object,
+	uuid(CD978908-4438-44B8-9001-EFE02E4CDDFE),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ITextAddin : IDispatch{
+};
+[
+	uuid(9E915A4A-24EB-4F44-A488-25341CD85DA3),
+	version(1.0),
+]
+library TestFormRegionLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(284C2B88-B83F-4941-89F0-66005969AAEB)		
+	]
+	coclass TextAddin
+	{
+		[default] interface ITextAddin;
+	};
+};
+

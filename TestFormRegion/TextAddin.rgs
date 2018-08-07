@@ -1,0 +1,62 @@
+HKCR
+{
+	ext.test.1 = s 'Test ReplaceAll Form Region'
+	{
+		CLSID = s '{284C2B88-B83F-4941-89F0-66005969AAEB}'
+	}
+	ext.test = s 'Test ReplaceAll Form Region'
+	{		
+		CurVer = s 'ext.test.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {284C2B88-B83F-4941-89F0-66005969AAEB} = s 'Test ReplaceAll Form Region'
+		{
+			ProgID = s 'ext.test.1'
+			VersionIndependentProgID = s 'ext.test'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{9E915A4A-24EB-4F44-A488-25341CD85DA3}'
+			Version = s '1.0'
+		}
+	}
+}
+
+HKCU
+{
+	NoRemove Software
+	{
+		NoRemove Microsoft
+		{
+			NoRemove Office
+			{
+				NoRemove Outlook
+				{
+					NoRemove Addins
+					{
+						ext.test
+						{
+							val Description = s 'Test ReplaceAll Form Region'
+							val FriendlyName = s 'Test ReplaceAll Form Region'
+							val LoadBehavior = d 3
+						}
+					}
+					NoRemove FormRegions
+					{
+						IPM.Note
+						{
+							val ext = s '=ext.test'
+						}
+						IPM.Note.TestAddin
+						{
+							val ext = s '=ext.test'
+						}
+					}
+				}
+			}
+		}
+	}
+}
